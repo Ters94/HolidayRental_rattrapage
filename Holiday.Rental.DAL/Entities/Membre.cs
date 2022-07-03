@@ -6,7 +6,7 @@ namespace Holiday.Rental.DAL.Entities
 {
     public class Membre
     {
-        public int Id { get; set; }
+        public int idMembre { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }

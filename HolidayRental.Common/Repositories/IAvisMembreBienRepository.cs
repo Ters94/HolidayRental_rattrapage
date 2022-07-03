@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HolidayRental.Common.Repositories
 {
-    public interface IMembreBienEchangeRepository<TMembreBienEchange> : IRepository<TMembreBienEchange, int>
+    public interface IAvisMembreBienRepository<TMembreBienEchange> : IRepository<TMembreBienEchange, int>
     {
     }
 }

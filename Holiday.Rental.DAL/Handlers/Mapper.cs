@@ -68,7 +68,7 @@ namespace Holiday.Rental.DAL.Handlers
             if (record is null) return null;
             return new Membre
             {
-                Id = (int)record[nameof(Membre.Id)],
+                idMembre = (int)record[nameof(Membre.idMembre)],
                 Nom = (string)record[nameof(Membre.Nom)],
                 Prenom = (string)record[nameof(Membre.Prenom)],
                 Email = (string)record[nameof(Membre.Email)],
