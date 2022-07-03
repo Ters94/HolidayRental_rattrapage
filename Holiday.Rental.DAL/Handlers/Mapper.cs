@@ -112,5 +112,5 @@ namespace Holiday.Rental.DAL.Handlers
     }
 }
 
-    }
-}
+    
+

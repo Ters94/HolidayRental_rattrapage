@@ -1,3 +1,8 @@
+using Holiday.Rental.DAL;
+using Holiday.Rental.DAL.Entities;
+using HolidayRental.BLL.Entities;
+using HolidayRental.BLL.Services;
+using HolidayRental.Common.Repositories;
 using HoliDayRental.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,10 +41,21 @@ namespace HoliDayRental
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
-            });      //permet de configurer les sessions pour mon application
+            });      
 
             services.AddControllersWithViews();
+
+            services.AddScoped<IBienEchangeRepository<BienEchange>, HolidayRental.DAL.Repositories.BienEchangeService>();
+            services.AddScoped<IMembreRepository<Membre>, HolidayRental.DAL.Repositories.MembreService>();
+            services.AddScoped<IPaysRepository<Pays>, HolidayRental.DAL.Repositories.PaysService>();
+           
+            services.AddScoped<IBienEchangeRepository<BienEchangeBLL>, BienEchangeService>();
+            services.AddScoped<IMembreRepository<MembreBLL>, MembreService>();
+            services.AddScoped<IPaysRepository<PaysBLL>, PaysService>();
+
+
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

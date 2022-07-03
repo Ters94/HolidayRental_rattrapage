@@ -1,6 +1,7 @@
-﻿using Holiday.Rental.DAL.Entities;
+﻿using Holiday.Rental.DAL;
+using Holiday.Rental.DAL.Entities;
 using HolidayRental.BLL.Entities;
-using HolidayRental.DAL.Entities;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +18,6 @@ namespace HolidayRental.BLL.Handlers
                 entity.Nom,
                 entity.Prenom,
                 entity.Email,
-                // Est-ce que PAYS est correct ? pas Pays_Id ???
                 entity.Pays,
                 entity.Telephone,
                 entity.Login,
@@ -33,7 +33,7 @@ namespace HolidayRental.BLL.Handlers
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
                 Email = entity.Email,
-                Pays = entity.Pays_ID,
+                Pays = entity.idPays,
                 Telephone = entity.Telephone,
                 Login = entity.Login,
                 Password = entity.Password
@@ -48,7 +48,6 @@ namespace HolidayRental.BLL.Handlers
                 entity.titre,
                 entity.DescCourte,
                 entity.DescLong,
-                // Est-ce que PAYS est correct ? pas Pays_Id ???
                 entity.NombrePerson,
                 entity.Pays,
                 entity.Ville,
@@ -72,7 +71,7 @@ namespace HolidayRental.BLL.Handlers
                 titre = entity.titre,
                 DescCourte = entity.DescCourte,
                 DescLong = entity.DescLong,
-                Pays = entity.Pays_ID,
+                Pays = entity.PaysId,
                 NombrePerson = entity.NombrePerson,
                 Ville = entity.Ville,
                 Rue = entity.Rue,
@@ -82,7 +81,7 @@ namespace HolidayRental.BLL.Handlers
                 AssuranceObligatoire = entity.AssuranceObligatoire,
                 Latitude = entity.Latitude,
                 Longitude = entity.Longitude,
-                idMembre = entity.Membre_ID
+                idMembre = entity.MembreId
             };
         }
 
