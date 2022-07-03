@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoliDayRental", "HomeShare\
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HoliDayRental.DB", "HoliDayRental.DB\HoliDayRental.DB.sqlproj", "{86D984FC-8413-4724-93FC-BAAF7FCC59C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holiday.Rental.DAL", "Holiday.Rental.DAL\Holiday.Rental.DAL.csproj", "{6CFE04CD-E5C1-4745-B081-9B6FE82251F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayRental.DAL", "Holiday.Rental.DAL\HolidayRental.DAL.csproj", "{6CFE04CD-E5C1-4745-B081-9B6FE82251F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayRental.Common", "HolidayRental.Common\HolidayRental.Common.csproj", "{3744C3CA-F7B5-4CE4-AAAB-46EE8639EE1F}"
 EndProject
