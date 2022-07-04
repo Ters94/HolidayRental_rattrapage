@@ -32,6 +32,7 @@ namespace HoliDayRental.Controllers
             return View();
         }
         [HttpPost]
+
         public IActionResult Login(LoginForm form)
         {
             if (!ModelState.IsValid) return View();
@@ -43,7 +44,7 @@ namespace HoliDayRental.Controllers
             _session.User = _MembreService.Get(id);
             return RedirectToAction("Index", "Home");
         }
-
+        
         public IActionResult LogOut()
         {
             HttpContext.Session.Clear();
