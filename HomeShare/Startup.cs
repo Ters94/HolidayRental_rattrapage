@@ -47,7 +47,7 @@ namespace HoliDayRental
 
             services.AddScoped<IBienEchangeRepository<BienEchange>, HolidayRental.DAL.Repositories.BienEchangeService>();
             services.AddScoped<IMembreRepository<Membre>, HolidayRental.DAL.Repositories.MembreService>();
-            services.AddScoped<IPaysRepository<Pays>, HolidayRental.DAL.Repositories.PaysService>();
+            services.AddScoped<IPaysRepository<PaysDAL>, HolidayRental.DAL.Repositories.PaysService>();
            
             services.AddScoped<IBienEchangeRepository<BienEchangeBLL>, BienEchangeService>();
             services.AddScoped<IMembreRepository<MembreBLL>, MembreService>();

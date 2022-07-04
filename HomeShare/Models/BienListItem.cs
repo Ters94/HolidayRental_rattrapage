@@ -21,6 +21,7 @@ namespace HoliDayRental.Models
 
         [ScaffoldColumn(false)]
         public int idPays { get; set; }
+        public Pays Pays { get; set; }
 
         [DisplayName("Photo")]
         public string Photo { get; set; }

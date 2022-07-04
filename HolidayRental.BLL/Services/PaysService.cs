@@ -12,9 +12,9 @@ namespace HolidayRental.BLL.Services
     public class PaysService : IPaysRepository<PaysBLL>
     {
         
-        private readonly IPaysRepository<Pays> _PaysRepository;
+        private readonly IPaysRepository<PaysDAL> _PaysRepository;
 
-        public PaysService(IPaysRepository<Pays> repository)
+        public PaysService(IPaysRepository<PaysDAL> repository)
         {
             _PaysRepository = repository;
         }

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace HolidayRental.DAL.Repositories
 {
-    public class PaysService : ServiceBase, IPaysRepository<Pays>
+    public class PaysService : ServiceBase, IPaysRepository<PaysDAL>
     {
         public void Delete(int id)
         {
@@ -26,7 +26,7 @@ namespace HolidayRental.DAL.Repositories
             }
         }
 
-        public Pays Get(int id)
+        public PaysDAL Get(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connString))
             {
@@ -43,7 +43,7 @@ namespace HolidayRental.DAL.Repositories
             }
         }
 
-        public IEnumerable<Pays> Get()
+        public IEnumerable<PaysDAL> Get()
         {
             using (SqlConnection connection = new SqlConnection(_connString))
             {
@@ -57,7 +57,7 @@ namespace HolidayRental.DAL.Repositories
             }
         }
 
-        public int Insert(Pays entity)
+        public int Insert(PaysDAL entity)
         {
             using (SqlConnection connection = new SqlConnection(_connString))
             {
@@ -77,7 +77,7 @@ namespace HolidayRental.DAL.Repositories
             }
         }
 
-        public void Update(int id, Pays entity)
+        public void Update(int id, PaysDAL entity)
         {
             using (SqlConnection connection = new SqlConnection(_connString))
             {

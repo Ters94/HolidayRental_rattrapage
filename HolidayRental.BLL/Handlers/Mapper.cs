@@ -85,7 +85,7 @@ namespace HolidayRental.BLL.Handlers
             };
         }
 
-        public static PaysBLL ToBLL(this Pays entity)
+        public static PaysBLL ToBLL(this PaysDAL entity)
         {
             if (entity == null) return null;
             return new PaysBLL(
@@ -93,10 +93,10 @@ namespace HolidayRental.BLL.Handlers
                 entity.Libelle);
         }
 
-        public static Pays ToDAL(this PaysBLL entity)
+        public static PaysDAL ToDAL(this PaysBLL entity)
         {
             if (entity == null) return null;
-            return new Pays
+            return new PaysDAL
             {
                 idPays = entity.idPays,
                 Libelle = entity.Libelle

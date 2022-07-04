@@ -100,13 +100,13 @@ namespace Holiday.Rental.DAL.Handlers
             };
         }
 
-        public static Pays ToPays(IDataRecord record)
+        public static PaysDAL ToPays(IDataRecord record)
         {
             if (record is null) return null;
-            return new Pays
+            return new PaysDAL
             {
-                idPays = (int)record[nameof(Pays.idPays)],
-                Libelle = (string)record[nameof(Pays.Libelle)]
+                idPays = (int)record[nameof(PaysDAL.idPays)],
+                Libelle = (string)record[nameof(PaysDAL.Libelle)]
             };
         }
     }

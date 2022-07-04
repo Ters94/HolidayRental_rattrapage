@@ -14,9 +14,9 @@ namespace HolidayRental.BLL.Services
     {
         private readonly IBienEchangeRepository<BienEchange> _BienEchangeRepository;
         private readonly IMembreRepository<Membre> _MembreRepository;
-        private readonly IPaysRepository<Pays> _PaysRepository;
+        private readonly IPaysRepository<PaysDAL> _PaysRepository;
 
-    public BienEchangeService(IBienEchangeRepository<BienEchange> repository, IMembreRepository<Membre> membreRepository, IPaysRepository<Pays> paysRepository)
+    public BienEchangeService(IBienEchangeRepository<BienEchange> repository, IMembreRepository<Membre> membreRepository, IPaysRepository<PaysDAL> paysRepository)
     {
         _BienEchangeRepository = repository;
         _MembreRepository = membreRepository;

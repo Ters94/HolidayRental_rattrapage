@@ -15,21 +15,33 @@ namespace HoliDayRental.Controllers
     {
         private readonly IBienEchangeRepository<BienEchangeBLL> _BienEchangeService;
         private readonly IPaysRepository<PaysBLL> _PaysService;
+        private readonly SessionManager _session;
 
 
 
-        public BienEchangeController(IBienEchangeRepository<BienEchangeBLL> bienEchangeService, IPaysRepository<PaysBLL> paysService)
+        public BienEchangeController(IBienEchangeRepository<BienEchangeBLL> bienEchangeService, IPaysRepository<PaysBLL> paysService ,SessionManager session)
         {
             _BienEchangeService = bienEchangeService;
             _PaysService = paysService;
-           
+            _session = session;
+
         }
 
         // GET: BienEchangeController
-        public ActionResult Index()
+        [Route("BienEchange/ListeBiens")]
+        [Route("BienEchange")]
+        public IActionResult Index()
         {
-            IEnumerable<BienListItem> model = _BienEchangeService.Get().Select(c => c.ToListItem());
+            try
+            {
+                IEnumerable<BienListItem> model = _BienEchangeService.Get().Select(c => c.ToListItem());
+                //model = model.Select(m => { m.Pays = _PaysService.Get(m.idPays).ToDetails(); return m; });
             return View(model);
+            }
+            catch (Exception e)
+            {
+                return Json(e);
+            }
         }
 
         // GET: BienEchangeController/Details/5
@@ -44,21 +56,46 @@ namespace HoliDayRental.Controllers
         // GET: BienEchangeController/Create
         public ActionResult Create()
         {
-            return View();
+            if (!_session.IsConnected) return RedirectToAction("Login", "Account");
+            BienEchangeCreate model = new BienEchangeCreate();
+           // model.PaysList = _PaysService.Get().Select(s => s.ToDetails());
+            model.idMembre = 1;
+            return View(model);
         }
 
         // POST: BienEchangeController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+       
+        public ActionResult Create(BienEchangeCreate collection)
         {
             try
             {
+                if (!ModelState.IsValid) throw new Exception();
+                BienEchangeBLL result = new BienEchangeBLL(
+                    0,
+                    collection.titre,
+                    collection.DescCourte,
+                    collection.DescLong,
+                    collection.NombrePerson,
+                    collection.idPays,
+                    collection.Ville,
+                    collection.Rue,
+                    collection.Numero,
+                    collection.CodePostal,
+                    collection.Photo,
+                    collection.AssuranceObligatoire,
+                    collection.Latitude,
+                    collection.Longitude,
+                    collection.idMembre
+                );
+                result.idBien = this._BienEchangeService.Insert(result);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                ViewBag.Error = e.Message;
+               // collection.PaysList = _PaysService.Get().Select(s => s.ToDetails());
+                return View(collection);
             }
         }
 

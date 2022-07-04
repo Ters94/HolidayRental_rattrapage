@@ -13,9 +13,9 @@ namespace HolidayRental.BLL.Services
    public  class MembreService : IMembreRepository<MembreBLL>
     {
         private readonly IMembreRepository<Membre> _MembreRepository;
-        private readonly IPaysRepository<Pays> _PaysRepository;
+        private readonly IPaysRepository<PaysDAL> _PaysRepository;
 
-        public MembreService(IMembreRepository<Membre> repository, IPaysRepository<Pays> paysRepository)
+        public MembreService(IMembreRepository<Membre> repository, IPaysRepository<PaysDAL> paysRepository)
         {
             _MembreRepository = repository;
             _PaysRepository = paysRepository;
