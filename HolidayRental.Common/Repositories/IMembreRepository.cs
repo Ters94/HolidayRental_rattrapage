@@ -6,5 +6,6 @@ namespace HolidayRental.Common.Repositories
 {
     public interface IMembreRepository<TMembre> : IRepository<TMembre, int>
     {
+        public int VerifPassword(string login, string password);
     }
 }

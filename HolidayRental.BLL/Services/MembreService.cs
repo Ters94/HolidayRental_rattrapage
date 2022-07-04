@@ -20,10 +20,14 @@ namespace HolidayRental.BLL.Services
             _MembreRepository = repository;
             _PaysRepository = paysRepository;
         }
+        public int VerifPassword(string login, string password)
+        {
+            return _MembreRepository.VerifPassword(login, password);
+        }
 
-        
 
-         
+
+
         public void Delete(int id)
         {
             _MembreRepository.Delete(id);

@@ -35,7 +35,7 @@ namespace HoliDayRental.Controllers
             try
             {
                 IEnumerable<BienListItem> model = _BienEchangeService.Get().Select(c => c.ToListItem());
-                //model = model.Select(m => { m.Pays = _PaysService.Get(m.idPays).ToDetails(); return m; });
+                model = model.Select(m => { m.Pays = _PaysService.Get(m.idPays).ToDetails(); return m; });
             return View(model);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ namespace HoliDayRental.Controllers
         {
             if (!_session.IsConnected) return RedirectToAction("Login", "Account");
             BienEchangeCreate model = new BienEchangeCreate();
-           // model.PaysList = _PaysService.Get().Select(s => s.ToDetails());
+            model.PaysList = _PaysService.Get().Select(s => s.ToDetails());
             model.idMembre = 1;
             return View(model);
         }

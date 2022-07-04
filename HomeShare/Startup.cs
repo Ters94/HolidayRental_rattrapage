@@ -3,6 +3,7 @@ using Holiday.Rental.DAL.Entities;
 using HolidayRental.BLL.Entities;
 using HolidayRental.BLL.Services;
 using HolidayRental.Common.Repositories;
+using HoliDayRental.Handlers;
 using HoliDayRental.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -52,6 +53,9 @@ namespace HoliDayRental
             services.AddScoped<IBienEchangeRepository<BienEchangeBLL>, BienEchangeService>();
             services.AddScoped<IMembreRepository<MembreBLL>, MembreService>();
             services.AddScoped<IPaysRepository<PaysBLL>, PaysService>();
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<SessionManager>();
 
 
         }
